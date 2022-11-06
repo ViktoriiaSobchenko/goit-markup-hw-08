@@ -1,0 +1,132 @@
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 16px;
+  justify-content: start;
+  margin-bottom: 40px;
+
+  @include tablet {
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+
+  @include desktop {
+    margin-bottom: 48px;
+  }
+}
+
+.filter__item:not(:last-child) {
+  margin-right: 8px;
+}
+
+.filter__button {
+  padding: 6px 22px;
+
+  background-color: var(--filter-btn-bgc);
+  color: var(--title-text-color);
+  @include font(500, null, 1.63, null);
+  transition: color var(--duration-timing-function),
+    background-color var(--duration-timing-function),
+    box-shadow var(--duration-timing-function);
+
+  &:hover,
+  &:focus {
+    color: var(--primery-white-color);
+    background-color: var(--accent-color);
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+      0px 2px 2px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.projects {
+  margin-top: 40px;
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 0;
+  }
+}
+
+.projects__item {
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  @include tablet {
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    flex-basis: calc((100% - 30px) / 2);
+  }
+  @include desktop {
+    flex-basis: calc((100% - 2 * 30px) / 3);
+  }
+}
+
+.projects__content {
+  padding: 20px 24px;
+  border: 1px solid var(--card-border-color);
+  border-top: none;
+}
+
+.projects__link {
+  display: block;
+
+  text-decoration: none;
+  color: inherit;
+
+  transition: box-shadow var(--duration-timing-function);
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+}
+.projects__thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects__desc {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 63px 24px;
+
+  @include font(null, 18px, 1.56, null);
+  color: var(--primery-white-color);
+  background: rgba(33, 150, 243, 0.9);
+
+  transition: transform var(--duration-timing-function);
+
+  .projects__link:hover &,
+  .projecs__link:focus & {
+    transform: translateY(-100%);
+  }
+}
+
+.projects__title {
+  margin: 0 0 4px 0;
+
+  color: var(--title-text-color);
+  @include font(null, 18px, 2, 0.06em);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .less {
+    letter-spacing: 0.03em;
+  }
+}
+
+.projects__text {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.88;
+}

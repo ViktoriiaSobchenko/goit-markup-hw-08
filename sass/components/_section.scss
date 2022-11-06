@@ -1,0 +1,30 @@
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @include desktop {
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
+
+  &.no-padding {
+    padding-top: 0;
+    @media screen and (max-width: 1199px) {
+      display: none;
+    }
+  }
+}
+
+.section__title {
+  margin-top: 0;
+  margin-bottom: 30px;
+
+  color: var(--title-text-color);
+  @include font(null, 28px, 1.18, null);
+  text-align: center;
+
+  @include desktop {
+    margin-bottom: 50px;
+    @include font(null, 36px, 1.17, null);
+  }
+}

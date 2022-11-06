@@ -1,0 +1,21 @@
+.logo {
+  color: var(--accent-color);
+  font-family: Raleway, sans-serif;
+  @include font(700, 24px, 1.17, null);
+  text-decoration: none;
+  transition: color var(--duration-timing-function);
+
+  @include desktop {
+    @include font(null, 26px, 1.19, null);
+  }
+}
+
+.logo__part {
+  color: var(--logo-part-color);
+  transition: color var(--duration-timing-function);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}

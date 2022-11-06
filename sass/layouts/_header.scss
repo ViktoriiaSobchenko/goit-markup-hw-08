@@ -1,0 +1,243 @@
+.header {
+  border-bottom: 1px solid var(--header-border-color);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  @include tablet {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.navigation__menu {
+  display: none;
+  @include tablet {
+    display: flex;
+    margin-left: 88px;
+  }
+  @include desktop {
+    margin-left: 93px;
+  }
+}
+
+.menu__item:not(:last-child) {
+  margin-right: 50px;
+}
+
+.menu__link,
+.connect__link {
+  @include font(500, 14px, 1.14, 0.02em);
+  text-decoration: none;
+}
+
+.connect__link {
+  @media screen and (max-width: 1199px) {
+    font-size: 12px;
+    line-height: 1.17;
+  }
+}
+
+.menu__link {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  color: var(--title-text-color);
+  transition: color var(--duration-timing-function);
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}
+
+.menu__link.current {
+  position: relative;
+
+  color: var(--accent-color);
+
+  &::after {
+    position: absolute;
+
+    content: "";
+    width: 100%;
+    height: 4px;
+    left: 0;
+    bottom: 0;
+
+    border-radius: 2px;
+    background-color: var(--accent-color);
+  }
+}
+
+.navigation__connect {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include desktop {
+    flex-direction: row;
+  }
+}
+
+.connect__item:not(:last-child) {
+  margin-bottom: 10px;
+
+  @include desktop {
+    margin-right: 30px;
+  }
+}
+
+.connect__link {
+  display: flex;
+  align-items: center;
+  color: var(--primary-tex-color);
+  transition: color var(--duration-timing-function);
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+
+  @include desktop {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+.connect__icon {
+  margin-right: 8px;
+  fill: currentColor;
+  @include desktop {
+    margin-right: 10px;
+  }
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  padding: 48px 40px;
+  background-color: var(--primery-white-color);
+  transition: opacity 350ms linear, visibility 350ms linear;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.mobile-wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+}
+
+.menu-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 40px;
+  height: 40px;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+  transition: color var(--duration-timing-function);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.menu-open-icon,
+.menu-close-icon {
+  fill: currentColor;
+}
+.mobile-menu__item,
+.mobile-connect__item:not(:last-child) {
+  margin-bottom: 32px;
+}
+.mobile-menu__link,
+.mobile-connect__link {
+  @include font(500, null, 1.18, 0.02em);
+  text-decoration: none;
+
+  transition: color var(--duration-timing-function);
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}
+
+.mobile-menu__link {
+  font-size: 40px;
+  color: var(--title-text-color);
+}
+
+.mobile-connect {
+  margin-bottom: 64px;
+}
+.mobile-connect__link {
+  @media screen and (max-width: 479px) {
+    font-size: 7vw;
+  }
+  font-size: 34px;
+  color: var(--accent-color);
+  &.mail {
+    @media screen and (max-width: 479px) {
+      font-size: 5vw;
+    }
+    font-size: 24px;
+    line-height: 1.17;
+    color: var(--primary-tex-color);
+  }
+}
+
+.mobile-soc {
+  display: flex;
+  flex-wrap: wrap;
+}
+.mobile-soc__item {
+  &:not(:first-child) {
+    margin-left: 10px;
+  }
+  &:not(:last-child) {
+    border-right: 1px solid rgba(33, 33, 33, 0.2);
+  }
+}
+.mobile-soc__link {
+  padding-right: 10px;
+  @include font(500, 18px, 1.22, 0.02em);
+  color: var(--accent-color);
+  text-decoration: none;
+}
